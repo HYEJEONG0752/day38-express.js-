@@ -1,0 +1,21 @@
+### 메인페이지
+GET  http://localhost:3000
+Content-Type: application/json
+
+### 모든 게시글 조회
+GET http://localhost:3000/posts
+
+
+### 새 게시글 작성
+GET  http://localhost:3000/posts/new
+Content-Type: application/json
+
+### 특정 게시글 조회
+GET http://localhost:3000/posts/1
+
+### 특정 게시글 수정
+PUT http://localhost:3000/posts/1
+Content-Type: application/json
+
+### 특정 게시글 삭제
+DELETE http://localhost:3000/posts/1
