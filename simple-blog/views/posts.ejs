@@ -1,26 +1,39 @@
+<!--게시글 목록 뷰-->
 <!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>게시글 목록</title>
-
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-    <h1>게시글 목록</h1>
-    <ul>
-        <% posts.forEach(post => { %>
-            <li>
-                <a href="/posts/<%= post.id %>"><%= post.title %></a>
-                <br>
-                <small>작성일: <%= post.createdAt.toLocaleString() %></small>
-                <!-- 게시글 수정 버튼 -->
-                <a class = "수정" href="/posts/<%= post.id %>/edit">수정</a>
-                <!-- 게시글 삭제 버튼 -->
-                <form action="/posts/<%= post.id %>?_method=DELETE" method="POST" style="display:inline;">
-                    <button type="submit">삭제</button>
-                </form>
-            </li>
-        <% }) %>
-    </ul>
-    <a
+    <div class="container">
+        <h1>게시글 목록</h1>
+        <ul>
+            <% posts.forEach(post => { %>
+                <li>
+                    <!-- 왼쪽: 제목 -->
+                    <div class="title">
+                        <%= post.title %>
+                    </div>
+                    <!-- 오른쪽: 날짜, 수정/삭제 버튼 -->
+                    <div class="info">
+                        <small>작성일: <%= post.createdAt.toLocaleString() %></small>
+                        <div class="button-container">
+                            <a href="/posts/<%= post.id %>/edit" class="button-link">수정</a>
+                            <form action="/posts/<%= post.id %>?_method=DELETE" method="POST">
+                                <button type="submit">삭제</button>
+                            </form>
+                        </div>
+                    </div>
+                </li>
+            <% }) %>
+        </ul>
+        <div class="links">
+            <a href="/posts/new" class="button-link">새 게시글 작성</a>
+            <a href="/" class="home-button">홈으로 돌아가기</a> <!-- 홈 버튼을 스타일링 -->
+        </div>
+    </div>
+</body>
+</html>

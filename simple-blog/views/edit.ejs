@@ -1,28 +1,27 @@
-<!--새 게시글 작성 뷰-->
+<!--게시글 수정 뷰-->
 <!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>새 게시글 작성</title>
+    <title>게시글 수정</title>
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
     <div class="container">
-        <h1>새 게시글 작성</h1>
-        <form action="/posts" method="POST">
+        <h1>게시글 수정</h1>
+        <form action="/posts/<%= post.id %>?_method=PUT" method="POST">
             <label for="title">제목:</label>
-            <input type="text" name="title" id="title" required><br>
+            <input type="text" name="title" id="title" value="<%= post.title %>" required><br>
 
             <label for="content">내용:</label>
-            <textarea name="content" id="content" required></textarea><br>
+            <textarea name="content" id="content" required><%= post.content %></textarea><br>
 
-            <button type="submit">작성</button>
+            <button type="submit">수정</button>
         </form>
         <!-- 홈 버튼 추가 -->
         <a href="/" class="home-button">홈으로 돌아가기</a>
     </div>
 </body>
 </html>
-
 
